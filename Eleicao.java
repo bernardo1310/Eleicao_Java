@@ -27,7 +27,7 @@ public class Eleicao {
             totalBrancos++;
         } else {
             totalVotosValidos++;
-            int numeroPartido = candidato / 1000; // Dois primeiros dígitos
+            int numeroPartido = candidato / 1000; 
             partidos.putIfAbsent(numeroPartido, new Partido(numeroPartido));
             partidos.get(numeroPartido).adicionarVotos(1);
         }
