@@ -1,3 +1,5 @@
+package eleicao;
+
 public class Voto {
     private int numeroUrna;
     private int numeroCandidato;
@@ -14,4 +16,13 @@ public class Voto {
     public int getNumeroCandidato() {
         return numeroCandidato;
     }
+
+	public void setNumeroUrna(int numeroUrna) {
+		this.numeroUrna = numeroUrna;
+	}
+
+	public void setNumeroCandidato(int numeroCandidato) {
+		this.numeroCandidato = numeroCandidato;
+	}
+    
 }

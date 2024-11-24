@@ -1,3 +1,5 @@
+package eleicao;
+
 import java.io.*;
 
 public class Leitura {

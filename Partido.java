@@ -1,3 +1,5 @@
+package eleicao;
+
 public class Partido {
     private int numero;
     private int votosTotais;

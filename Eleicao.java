@@ -1,4 +1,7 @@
+package eleicao;
+
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Eleicao {
     private List<Voto> votos;
@@ -27,13 +30,13 @@ public class Eleicao {
             totalBrancos++;
         } else {
             totalVotosValidos++;
-            int numeroPartido = candidato / 1000; 
+            int numeroPartido = candidato / 1000;
             partidos.putIfAbsent(numeroPartido, new Partido(numeroPartido));
             partidos.get(numeroPartido).adicionarVotos(1);
         }
     }
 
-    public double calcularQuocienteEleitoral() {
+    public double calcularQuocienteEleitoral() { //Criado pois é usado em várias outras métodos
         return (double) totalVotosValidos / numeroCadeiras;
     }
 
@@ -48,9 +51,17 @@ public class Eleicao {
     }
 
     public void exibirResumo() {
+        System.out.println("Resumo da Eleição:");
         System.out.println("Total de votos: " + votos.size());
         System.out.println("Votos válidos: " + totalVotosValidos);
-        System.out.println("Votos brancos: " + totalBrancos);
-        System.out.println("Votos nulos: " + totalNulos);
+        System.out.println("Votos brancos: " + totalBrancos + " (" + (double) totalBrancos / votos.size() * 100 + "%)");
+        System.out.println("Votos nulos: " + totalNulos + " (" + (double) totalNulos / votos.size() * 100 + "%)");
     }
+
+    public boolean candidatoAtendeClausula(int votosCandidato) {
+        double quocienteEleitoral = calcularQuocienteEleitoral();
+        return votosCandidato >= 0.1 * quocienteEleitoral;
+    }
+    
+
 }
