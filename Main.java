@@ -11,6 +11,8 @@ public class Main {
             Leitura.carregarVotos(caminhoArquivo, eleicao);
             eleicao.exibirResumo();
             eleicao.calcularDistribuicaoCadeiras();
+            eleicao.listarEleitos();
+            eleicao.exibirResultadosPorLegenda();
         } catch (IOException e) {
             e.printStackTrace();
         }
